@@ -1,7 +1,7 @@
 import React from "react";
 
 // style
-import redstar from "../assetsredStar.svg";
+import redstar from "../assets/redStar.svg";
 import greystar from "../assets/greyStar.svg";
 
 const Rating = ({ rating }) => {
