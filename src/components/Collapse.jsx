@@ -1,28 +1,16 @@
 import React from "react";
+import { useState } from "react";
 // possible d'ajuster l'ouverture du collapse avec usestate
 
 const Collapse = ({ title, content }) => {
-  const isCollapse = (e) => {
-    e.preventDefault();
-    const divText = e.target.nextSibling;
-    const arrow = e.target.lastChild;
-
-    if (!divText.classList.contains("show")) {
-      divText.classList.add("show");
-      arrow.classList.add("rotate");
-    } else {
-      divText.classList.remove("show");
-      arrow.classList.remove("rotate");
-    }
-  };
+  const [isOpen, setIsOpen] = useState(true);
   return (
-    <div className="collapse ">
-      <button type="button" className="collapse__button" onClick={isCollapse}>
-        {title}
-
-        <p className="collapse__arrow">&lt;</p>
-      </button>
-      <div className="collapse__content">
+    <div className='collapse'>
+        <button className='collapse__button' onClick={() => setIsOpen(!isOpen)}>
+          {title}
+          <p className="collapse__arrow rotate">&lt;</p>
+        </button>        
+        <div className={isOpen ? 'collapse__content' : 'content'}>
         {Array.isArray(content) ? (
           <ul className="collapse__list">
             {content.map((equipment, index) => (
@@ -34,9 +22,9 @@ const Collapse = ({ title, content }) => {
         ) : (
           <p className="collapse__text">{content}</p>
         )}
-      </div>
+        </div>
     </div>
-  );
+)  
 };
 
 export default Collapse;
