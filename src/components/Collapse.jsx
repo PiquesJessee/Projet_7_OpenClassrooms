@@ -8,7 +8,7 @@ const Collapse = ({ title, content }) => {
     <div className='collapse'>
         <button className='collapse__button' onClick={() => setIsOpen(!isOpen)}>
           {title}
-          <p className="collapse__arrow rotate">&lt;</p>
+          <p className="collapse__arrow">&lt;</p>
         </button>        
         <div className={isOpen ? 'collapse__content' : 'content'}>
         {Array.isArray(content) ? (
